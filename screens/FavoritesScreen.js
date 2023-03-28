@@ -1,15 +1,12 @@
 // import { useRoute } from '@react-navigation/native';
 import { StyleSheet, Text,View } from 'react-native';
 
-import { FavoritesContext } from '../store/context/favorites-context';
-import { useContext } from "react";
-
 import MealsList from '../components/MealsList/MealsList';
+import { useDispatch, useSelector } from 'react-redux';
 
 const FavoritesScreen = () => {
-    const favoriteMealsCtx = useContext(FavoritesContext);
 
-    const favoriteMealIds = favoriteMealsCtx.ids;
+    const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
     
     if (favoriteMealIds.length === 0) {
         return (
